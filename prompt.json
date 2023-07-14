@@ -1,0 +1,135 @@
+{
+  "prompt": {
+      "6": {
+          "inputs": {
+              "text": "wood cube",
+              "clip": [
+                  "25",
+                  1
+              ]
+          },
+          "class_type": "CLIPTextEncode"
+      },
+      "7": {
+          "inputs": {
+              "text": "text, watermark",
+              "clip": [
+                  "25",
+                  1
+              ]
+          },
+          "class_type": "CLIPTextEncode"
+      },
+      "8": {
+          "inputs": {
+              "samples": [
+                  "23",
+                  0
+              ],
+              "vae": [
+                  "25",
+                  2
+              ]
+          },
+          "class_type": "VAEDecode"
+      },
+      "13": {
+          "inputs": {
+              "images": [
+                  "8",
+                  0
+              ]
+          },
+          "class_type": "PreviewImage"
+      },
+      "18": {
+          "inputs": {
+              "control_net_name": "ControlNet-v1-1/control_v11f1p_sd15_depth.pth"
+          },
+          "class_type": "ControlNetLoader"
+      },
+      "20": {
+          "inputs": {
+              "strength": 1,
+              "conditioning": [
+                  "6",
+                  0
+              ],
+              "control_net": [
+                  "18",
+                  0
+              ],
+              "image": [
+                  "21",
+                  0
+              ]
+          },
+          "class_type": "ControlNetApply"
+      },
+      "21": {
+          "inputs": {
+              "image": "auto_tex_no_mask_depth.png",
+              "choose file to upload": "image"
+          },
+          "class_type": "LoadImage"
+      },
+      "23": {
+          "inputs": {
+              "seed": 0,
+              "steps": 20,
+              "cfg": 4,
+              "sampler_name": "ddim",
+              "scheduler": "ddim_uniform",
+              "denoise": 1,
+              "model": [
+                  "25",
+                  0
+              ],
+              "positive": [
+                  "20",
+                  0
+              ],
+              "negative": [
+                  "7",
+                  0
+              ],
+              "latent_image": [
+                  "28",
+                  0
+              ]
+          },
+          "class_type": "KSampler"
+      },
+      "25": {
+          "inputs": {
+              "ckpt_name": "majicmixRealistic_v6.safetensors"
+          },
+          "class_type": "CheckpointLoaderSimple"
+      },
+      "27": {
+          "inputs": {
+              "image": "auto_tex_mask_albedo.png",
+              "choose file to upload": "image"
+          },
+          "class_type": "LoadImage"
+      },
+      "28": {
+          "inputs": {
+              "grow_mask_by": 6,
+              "pixels": [
+                  "27",
+                  0
+              ],
+              "vae": [
+                  "25",
+                  2
+              ],
+              "mask": [
+                  "27",
+                  1
+              ]
+          },
+          "class_type": "VAEEncodeForInpaint"
+      }
+  }
+}
