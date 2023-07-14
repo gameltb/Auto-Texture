@@ -41,4 +41,10 @@
 
 这是插件投射的漫反射贴图蒙版, 白色为已投射部分, 影响渲染后的漫反射透明通道, 在 ComfyUI 中可以用来区分已绘制部分用于 Inpainting, 对于不满意的地方,可以涂成黑色,这样可以在 ComfyUI 中重绘.
 
+# 截图
+
+![1](image/1.png)
+![2](image/2.png)
+![3](image/3.png)
+
 此插件使用了一些来自 https://github.com/panmari/stanford-shapenet-renderer 的代码
